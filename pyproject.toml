@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bulk-image-convert"
+version = "0.1.0"
+description = "Convert and compress images in bulk to WebP, AVIF, JPEG or PNG. Works offline. Optional cloud mode for large batches."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+dependencies = ["Pillow>=10.1"]
+keywords = ["image", "webp", "avif", "compress", "converter", "cli"]
+
+[project.optional-dependencies]
+heic = ["pillow-heif"]
+cloud = ["apify-client>=1.7"]
+dev = ["pytest"]
+
+[project.scripts]
+bulk-image-convert = "bulk_image_convert.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com/donmangudata-ops/bulk-image-convert"
